@@ -51,13 +51,13 @@ const renderDataAsHtml = data => {
   document.querySelector("#app").innerHTML = cards;
 };
 
-// const deleteUser = noteId => {
+const deleteUser = noteId => {
 
-//   firebase
-//     .database()
-//     .ref(`users/${googleUserId}/${noteId}`)
-//     .remove();
-// };
+  firebase
+    .database()
+    .ref(`users/${googleUserId}/${noteId}`)
+    .remove();
+};
 
 const deleteNote = noteId => {
   const modal = document.getElementById("modal-1");
