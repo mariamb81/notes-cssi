@@ -85,13 +85,13 @@ let numOfCards = 0;
 const createCard = (note, noteId) => {
   let colors = ["red", "blue", "green", "yellow", "orange"];
   numOfCards++;
-  var randomItem = colors[Math.floor(Math.random() * colors.length)];
+  var randomItem = colors[Math.floor(Math.random() * colors.length)]; //randomly generated colors
   const dateFormatted = new Date(note.created).toUTCString();
   const searchKey = note.label + numOfCards;
   // var element = document.getElementById("delete");
   return `
          <div class="column is-one-quarter">
-         <div class="card" id="${numOfCards}" style="background-color:${randomItem}">
+         <div class="card" id="${numOfCards}" style="background-color:${note.color}">
            <header class="card-header">
              <p class="card-header-title is-4">${note.title}</p>
            </header>
@@ -121,7 +121,7 @@ const searchLabels = searchKey => {
       cardHasKey[numOfMatches] = document.getElementById(i); //card with search key
       cardHasKey[numOfMatches].style.backgroundColor = "white";
       //sending a copy of HTML DIV
-      searchResults.innerText =
+      searchResults.innerHTML =
         String(cardHasKey[numOfMatches]);
       console.log(cardHasKey[numOfMatches]);
       numOfMatches++;
