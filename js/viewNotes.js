@@ -132,6 +132,8 @@ const searchLabels = searchKey => {
 searchButton.addEventListener("click", e => {
   const searchText = document.querySelector("#label");
   document.querySelector("#label-subtitle").innerHTML = searchText.value;
-  searchLabels(searchText.value.toLowerCase());
+  if(searchText != ""){
+      searchLabels(searchText.value.toLowerCase());
+  }
   searchText.value = "";
 });
